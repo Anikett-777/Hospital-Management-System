@@ -68,7 +68,7 @@
 				<i class="bi bi-hospital fs-1 text-success"></i>
 			</div>
 
-			<h3 class="fw-bold">Hospital Login</h3>
+			<h3 class="fw-bold">Doctor Login</h3>
 			<p class="text-light">Access your account securely</p>
 
 			<form>

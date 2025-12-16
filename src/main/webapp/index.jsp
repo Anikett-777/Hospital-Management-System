@@ -1,3 +1,5 @@
+<%@page import="com.db.DBConnect" %>
+<%@page import="java.sql.Connection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -61,7 +63,6 @@
 </style>
 <body>
 <%@include file="components/navbar.jsp" %>
-
 
 <!-- Carousel Start -->
 <div id="hospitalCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">

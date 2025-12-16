@@ -102,7 +102,7 @@ a:hover {
 
 				<button type="submit" class="btn login-btn w-100 py-2 mb-3">Login</button>
 
-				<small><a href="#">Forgot password?</a></small>
+				<p>Don't have an account ? <a href="signup.jsp">create one</a></p>
 
 			</form>
 
