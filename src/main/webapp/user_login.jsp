@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +58,9 @@
 .login-btn:hover {
 	background-color: #00b98a;
 }
-li{
- list-style:none;
+
+li {
+	list-style: none;
 }
 </style>
 </head>
@@ -75,24 +78,35 @@ li{
 			<h3 class="fw-bold">User Login</h3>
 			<p class="text-light">Access your account securely</p>
 
-			<form>
+			<c:if test="${not empty succMsg }">
+				<p class="tecxt-center text-success fs-5">${succMsg}</p>
+				<c:remove var="succMsg" scope="session"></c:remove>
+			</c:if>
+
+			<!--If Data not Inserted  -->
+			<c:if test="${not empty errorMsg }">
+				<p class="tecxt-center text-danger fs-5">${errorMsg}</p>
+				<c:remove var="errorMsg" scope="session"></c:remove>
+			</c:if>
+
+			<form action="user_login" method="post">
 
 				<!-- Email -->
 				<div class="input-group mb-3">
 					<span class="input-group-text"><i class="bi bi-envelope"></i></span>
-					<input type="email" class="form-control" placeholder="Email">
+					<input type="email" class="form-control" placeholder="Email" name="email">
 				</div>
 
 				<!-- Password -->
 				<div class="input-group mb-4">
 					<span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-					<input type="password" class="form-control" placeholder="Password">
+					<input type="password" class="form-control" placeholder="Password" name="password">
 				</div>
 
 				<button type="submit" class="btn login-btn w-100 py-2 mb-3">Login</button>
 
-				<br>Don't have any an Account <a href="signup.jsp" class="text-decoration-none">
-				create one</a>
+				<br>Don't have any an Account <a href="signup.jsp"
+					class="text-decoration-none"> create one</a>
 
 			</form>
 

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background:linear-gradient(135deg, #34d399, #059669);
+	background: linear-gradient(135deg, #34d399, #059669);
 }
 
 /* GLASS CARD */
@@ -85,24 +87,39 @@ a:hover {
 			<h3>Admin Login</h3>
 			<p class="text-light">Secure admin access panel</p>
 
-			<form>
+			<form action="admin_register" method="post">
+
+				<c:if test="${not empty succMsg }">
+					<p class="tecxt-center text-success fs-5">${succMsg}</p>
+					<c:remove var="succMsg" scope="session"></c:remove>
+				</c:if>
+
+				<!--If Data not Inserted  -->
+				<c:if test="${not empty errorMsg }">
+					<p class="tecxt-center text-danger fs-5">${errorMsg}</p>
+					<c:remove var="errorMsg" scope="session"></c:remove>
+				</c:if>
+
 
 				<!-- Username -->
 				<div class="input-group mb-3">
 					<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
 					<input type="text" class="form-control"
-						placeholder="Admin Username">
+						placeholder="Admin Username" name="email">
 				</div>
 
 				<!-- Password -->
 				<div class="input-group mb-4">
 					<span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-					<input type="password" class="form-control" placeholder="Password">
+					<input type="password" class="form-control" placeholder="Password"
+						name="password">
 				</div>
 
 				<button type="submit" class="btn login-btn w-100 py-2 mb-3">Login</button>
 
-				<p>Don't have an account ? <a href="signup.jsp">create one</a></p>
+				<p>
+					Don't have an account ? <a href="signup.jsp">create one</a>
+				</p>
 
 			</form>
 
