@@ -67,13 +67,28 @@ body {
 	color: #64748b;
 	font-size: 14px;
 }
+
+.hospital-modal {
+	border-radius: 14px;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hospital-modal .form-control {
+	border-radius: 10px;
+}
+
+.hospital-modal .btn-primary {
+	background: linear-gradient(135deg, #0ea5e9, #0369a1);
+	border: none;
+}
 </style>
 <body>
-	<%@include file="navbar.jsp"%>
-	
+	<%@include file="admin_navbar.jsp"%>
+
 	<c:if test="${empty adminObj}">
-	<c:redirect url="../admin_login.jsp"></c:redirect>
 	
+		<c:redirect url="../admin_login.jsp"></c:redirect>
+
 	</c:if>
 
 
@@ -142,7 +157,8 @@ body {
 
 			<!-- Specialists -->
 			<div class="col-lg-3 col-md-6">
-				<div class="card stat-card p-4">
+				<div class="card stat-card p-4" data-bs-toggle="modal"
+					data-bs-target="#addSpecialistModal">
 					<div class="d-flex align-items-center gap-3">
 						<div class="icon-box bg-specialist">
 							<i class="bi bi-award-fill"></i>
@@ -155,6 +171,47 @@ body {
 				</div>
 			</div>
 
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="addSpecialistModal" tabindex="-1"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content hospital-modal">
+
+				<!-- Header -->
+				<div class="modal-header border-0">
+					<h5 class="modal-title d-flex align-items-center gap-2">
+						<i class="bi bi-award-fill text-primary"></i> Add Specialist
+					</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+				<!-- Body -->
+				<div class="modal-body">
+					<form action="../add_specialist" method="post">
+
+						<div class="mb-3">
+							<label class="form-label">Specialist Name</label> <input
+								type="text" class="form-control"
+								placeholder="e.g. Cardiology" name="specName">
+						</div>
+						
+						<div class="mb-3">
+							<button class="btn btn-primary" type="submit">Add Specialist</button>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- Footer -->
+				<div class="modal-footer border-0">
+					<button class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+					
+				</div>
+
+			</div>
 		</div>
 	</div>
 

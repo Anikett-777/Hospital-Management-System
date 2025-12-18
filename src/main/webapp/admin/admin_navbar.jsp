@@ -14,7 +14,7 @@
 					aria-current="page" href="admin_login.jsp"><i
 						class="fa-solid fa-arrow-right-to-bracket"></i>Home</a></li>
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="doctor_login.jsp"><i
+					aria-current="page" href="doctor.jsp"><i
 						class="fa-solid fa-user-doctor"></i>Doctor</a></li>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#">Patient</a></li>
