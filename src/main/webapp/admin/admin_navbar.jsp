@@ -17,6 +17,9 @@
 					aria-current="page" href="doctor.jsp"><i
 						class="fa-solid fa-user-doctor"></i>Doctor</a></li>
 				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="view_doctor.jsp">View Doctor</a></li>
+					
+				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#">Patient</a></li>
 
 			</ul>
