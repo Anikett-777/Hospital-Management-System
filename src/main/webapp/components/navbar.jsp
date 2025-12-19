@@ -36,7 +36,7 @@
 						aria-current="page" href="user_appointment.jsp">Appointment</a></li>
 
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">View Appointment</a></li>
+						aria-current="page" href="view_appointment.jsp">View Appointment</a></li>
 
 					<li class="nav-item dropdown active"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
