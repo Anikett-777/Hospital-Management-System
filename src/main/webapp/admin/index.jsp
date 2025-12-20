@@ -1,3 +1,5 @@
+<%@page import="com.db.DBConnect"%>
+<%@page import="com.dao.DoctorDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -108,6 +110,9 @@ body {
 			<c:remove var="errorMsg" scope="session"></c:remove>
 		</c:if>
 
+		<%
+		DoctorDao dao = new DoctorDao(DBConnect.getConn());
+		%>
 		<div class="row g-4">
 
 			<!-- Doctors -->
@@ -118,7 +123,7 @@ body {
 							<i class="bi bi-heart-pulse"></i>
 						</div>
 						<div>
-							<div class="stat-number">45</div>
+							<div class="stat-number"><%=dao.countDoctor() %></div>
 							<div class="stat-label">Doctors</div>
 						</div>
 					</div>
@@ -135,7 +140,7 @@ body {
 							<i class="bi bi-people-fill"></i>
 						</div>
 						<div>
-							<div class="stat-number">320</div>
+							<div class="stat-number"><%=dao.countUser() %></div>
 							<div class="stat-label">Users</div>
 						</div>
 					</div>
@@ -150,7 +155,7 @@ body {
 							<i class="bi bi-calendar-check-fill"></i>
 						</div>
 						<div>
-							<div class="stat-number">128</div>
+							<div class="stat-number"><%=dao.countAppointment() %></div>
 							<div class="stat-label">Appointments</div>
 						</div>
 					</div>
@@ -166,7 +171,7 @@ body {
 							<i class="bi bi-award-fill"></i>
 						</div>
 						<div>
-							<div class="stat-number">18</div>
+							<div class="stat-number"><%=dao.countSpecialist() %></div>
 							<div class="stat-label">Specialists</div>
 						</div>
 					</div>

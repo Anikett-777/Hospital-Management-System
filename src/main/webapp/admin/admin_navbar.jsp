@@ -11,7 +11,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="admin_login.jsp"><!-- <i
+					aria-current="page" href="index.jsp"><!-- <i
 						class="fa-solid fa-arrow-right-to-bracket"></i> -->Home</a></li>
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="doctor.jsp"><i
@@ -20,7 +20,7 @@
 					aria-current="page" href="view_doctor.jsp">View Doctor</a></li>
 					
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="#">Patient</a></li>
+					aria-current="page" href="admin_patient.jsp">Patient</a></li>
 
 			</ul>
 

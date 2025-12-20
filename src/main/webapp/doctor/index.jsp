@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
+<%@page import="com.db.DBConnect"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@ page import="com.entity.Doctor"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +58,11 @@
 	<h3 class="dashboard-title mb-4">Admin Dashboard</h3>
 	<div class="container py-5">
 		<div class="row g-4">
-
+			<%
+			Doctor d = (Doctor)session.getAttribute("doctObj");
+			DoctorDao dao = new DoctorDao(DBConnect.getConn());
+			
+			%>
 			<!-- Doctors -->
 			<div class="col-lg-3 col-md-6">
 				<div class="card stat-card p-4">
@@ -64,7 +71,7 @@
 							<i class="bi bi-heart-pulse"></i>
 						</div>
 						<div>
-							<div class="stat-number">45</div>
+							<div class="stat-number"><%=dao.countDoctor()%></div>
 							<div class="stat-label">Doctors</div>
 						</div>
 					</div>
@@ -79,7 +86,7 @@
 							<i class="bi bi-people-fill"></i>
 						</div>
 						<div>
-							<div class="stat-number">320</div>
+							<div class="stat-number"><%=dao.countAppointmentByDoctorId(d.getId())%></div>
 							<div class="stat-label">Users</div>
 						</div>
 					</div>
