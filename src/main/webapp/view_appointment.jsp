@@ -61,11 +61,15 @@
 }
 </style>
 <body>
+
+	<c:if test="${empty userObj }">
+		<c:redirect url="user_login.jsp"></c:redirect>
+	</c:if>
+	
 	<%@include file="components/navbar.jsp"%>
 	<section class="appointment-list-section py-5">
 		<div class="container">
 			<div class="row align-items-center">
-
 				<!-- LEFT: APPOINTMENT TABLE -->
 				<div class="col-lg-8">
 					<div class="card appointment-table-card p-4">
@@ -87,16 +91,16 @@
 								</thead>
 
 								<tbody>
-								<%
-								User user =(User)session.getAttribute("userObj");
-								AppoinmentDao dao = new AppoinmentDao(DBConnect.getConn());
-								List<Appointment>list=dao.getAllAppointmentByLoginUser(user.getId());
-								DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
-								for (Appointment ap : list)
-								
-								{
-									Doctor d=dao2.getDoctorById(ap.getDoctorId());
-								%>
+									<%
+									User user = (User) session.getAttribute("userObj");
+									AppoinmentDao dao = new AppoinmentDao(DBConnect.getConn());
+									List<Appointment> list = dao.getAllAppointmentByLoginUser(user.getId());
+									DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
+									for (Appointment ap : list)
+
+									{
+										Doctor d = dao2.getDoctorById(ap.getDoctorId());
+									%>
 									<tr>
 										<td class="fw-semibold"><%=ap.getFullName()%></td>
 										<td><%=ap.getGender()%></td>
@@ -104,27 +108,28 @@
 										<td><%=ap.getAppoinDate()%></td>
 										<td><%=ap.getDiseases()%></td>
 										<td><%=ap.getFullName()%></td>
-										<td><span class="badge status-ok">
-										<% if("Pending".equals(ap.getStatus())){%>
-											<a href="#"  class="btn btn-sm btn-warning">Pending</a>
-											
-										<%}else{%>
-											<a href="#"  class="btn btn-sm btn-success">Done</a>
-											<%}
-											%>
-										
+										<td><span class="badge status-ok"> <%
+ if ("Pending".equals(ap.getStatus())) {
+ %>
+												<a href="#" class="btn btn-sm btn-warning">Pending</a> <%
+ } else {
+ %>
+												<a href="#" class="btn btn-sm btn-success">Done</a> <%
+ }
+ %>
+
 										</span></td>
-									</tr>			
-									
-								<%}
-								
-								%>
-									
+									</tr>
+
+									<%
+									}
+									%>
+
 								</tbody>
 							</table>
 						</div>
 					</div>
-				</div>                       
+				</div>
 
 				<!-- RIGHT: DOCTOR IMAGE -->
 				<div class="col-lg-4 d-none d-lg-block text-center">

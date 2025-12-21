@@ -44,7 +44,7 @@
 							class="fa-regular fa-user"></i> ${userObj.fullName}
 					</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Change Password</a></li>
+							<li><a class="dropdown-item" href="change_password.jsp">Change Password</a></li>
 							<li><a class="dropdown-item" href="user_logout">Logout</a></li>
 						</ul></li>
 				</c:if>
